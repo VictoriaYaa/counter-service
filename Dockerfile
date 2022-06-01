@@ -1,7 +1,16 @@
-FROM python:3.8
+FROM ubuntu:16.04
+
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
+
+COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /counter-service
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "counter-service.py"]
+COPY . /counter-service
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "counter-service.py" ]
