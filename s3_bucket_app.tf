@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "terraform_state_s3" {
 
-  bucket = "vic_s3_bucket_for_application_repo" 
+  bucket = "app_vic_bucket" 
   force_destroy = true
 # Enable versioning to see full revision history of our state files
   versioning {
@@ -20,7 +20,7 @@ server_side_encryption_configuration {
 # # S3 Backend
 # terraform {
 #   backend "s3" {
-#     bucket = "vic_s3_bucket_for_application_repo"
+#     bucket = "app_vic_bucke"
 #     key    = "terraform.tfstate"
 #     region = "us-east-1"
 #     profile = "default"

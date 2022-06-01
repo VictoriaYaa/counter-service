@@ -28,6 +28,13 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
+    
+    - name: Terraform Validate
+      run: terraform validate
+
+    - name: Validate failed
+      if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
+      run: echo "terraform validate failed"
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -40,9 +47,3 @@ jobs:
       run: terraform plan 
 
 
-    - name: Terraform Validate
-      run: terraform validate
-
-    - name: Validate failed
-      if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
-      run: echo "terraform validate failed"
