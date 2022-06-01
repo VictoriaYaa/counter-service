@@ -17,12 +17,12 @@ server_side_encryption_configuration {
   }
 }
 
-# # S3 Backend
-# terraform {
-#   backend "s3" {
-#     bucket = "vic_s3_bucket_for_application_repo"
-#     key    = "terraform.tfstate"
-#     region = "us-east-1"
-#     profile = "default"
-#   }
-# }
+# S3 Backend
+terraform {
+  backend "s3" {
+    bucket = "vic_s3_bucket_for_application_repo"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+    profile = "default"
+  }
+}
