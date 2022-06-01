@@ -19,12 +19,12 @@ server_side_encryption_configuration {
   }
 }
 
-# S3 Backend
-terraform {
-  backend "s3" {
-    bucket = "app_s3_bucket"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
-    profile = "default"
-  }
-}
+# # S3 Backend
+# terraform {
+#   backend "s3" {
+#     bucket = "app_s3_bucket"
+#     key    = "terraform.tfstate"
+#     region = "us-east-1"
+#     profile = "default"
+#   }
+# }
