@@ -15,12 +15,12 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
-    steps:
+  steps:
 
-      - name: Terraform Validate
-        uses: dflook/terraform-validate@v1
-        with:
-          path: my-terraform-config
+    - name: Terraform Validate
+      uses: dflook/terraform-validate@v1
+      with:
+        path: my-terraform-config
 
     - name: Set up Go
       uses: actions/setup-go@v2
