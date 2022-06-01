@@ -21,7 +21,7 @@ server_side_encryption_configuration {
 terraform {
   backend "s3" {
     bucket = "vic_s3_bucket_for_application_repo"
-    key    = "terra-state-for-application-repo"
+    key    = "terraform.tfstate"
     region = "${variable.region}"
     profile = "default"
   }
