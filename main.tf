@@ -14,12 +14,12 @@ resource "docker_container" "counter_service_container" {
 }
 
 
-# Create a ECR repository
-resource "aws_ecr_repository" "vic_counter_service" {
-  name                 = "vic_counter_service"
-  image_tag_mutability = "MUTABLE"
+# # Create a ECR repository
+# resource "aws_ecr_repository" "vic_counter_service" {
+#   name                 = "vic_counter_service"
+#   image_tag_mutability = "MUTABLE"
 
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-}
+#   image_scanning_configuration {
+#     scan_on_push = true
+#   }
+# }
