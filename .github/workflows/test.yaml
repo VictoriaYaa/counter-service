@@ -41,7 +41,7 @@ jobs:
 
 
     - name: Terraform Validate
-      uses: terraform validate
+      run: terraform validate
 
     - name: Validate failed
       if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
