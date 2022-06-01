@@ -22,7 +22,7 @@ terraform {
   backend "s3" {
     bucket = "vic_s3_bucket_for_application_repo"
     key    = "terraform.tfstate"
-    region = "${variable.region}"
+    region = "us-east-1"
     profile = "default"
   }
 }
