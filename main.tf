@@ -1,8 +1,8 @@
 resource "docker_image" "counter_service_image" {
   name = "counter_services"
   build {
-    path = "/counter-service"
-    dockerfile = "Dockerfile.dockerfile"
+    path = "."
+    dockerfile = "Dockerfile"
     }
   }
 
