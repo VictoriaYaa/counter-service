@@ -74,6 +74,10 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
+      
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name vic-terraform-eks-NEW --region us-east-1
+      
       - name: Deploy image to Amazon EKS
         run: |
           kubectl apply -f counter-service/aws-auth.yaml
