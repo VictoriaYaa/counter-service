@@ -1,16 +1,17 @@
 FROM ubuntu:16.04
 
 RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+    apt-get install -y python3-pip python3-dev &&\
+    apt-get install flask
 
-COPY ./requirements.txt /app/requirements.txt
+# COPY ./requirements.txt /app/requirements.txt
 
-WORKDIR /app
+ADD counter-service.py /
 
-RUN pip install -r requirements.txt
+WORKDIR /
 
-COPY . /app
+# RUN pip install -r requirements.txt
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "python3" ]
 
 CMD [ "counter-service.py" ]
