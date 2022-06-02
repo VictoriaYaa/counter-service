@@ -9,7 +9,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   deploy:
-    name: Build image
+    name: Deployment Progress
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
           aws-region: us-east-1
 
       # Install kubectl
-      - name: Install kubectl
+      - name: Install Kubectl
         uses: azure/setup-kubectl@v1
         with:
           version: 'v1.21.3'
@@ -75,12 +75,12 @@ jobs:
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       
-      - name: Update kube config
+      - name: Update Kube Config
         run: aws eks update-kubeconfig --name vic-terraform-eks-NEW --region us-east-1
       
       - name: Deploy image to Amazon EKS
         run: |
-          kubectl apply -f counter-service/aws-auth.yaml
-          kubectl apply -f counter-service/deployment.yaml
-          kubectl apply -f counter-service/kube-service.yaml
-          kubectl apply -f counter-service/kube-ingress.yaml
+          kubectl apply -f aws-auth.yaml
+          kubectl apply -f deployment.yaml
+          kubectl apply -f kube-service.yaml
+          kubectl apply -f kube-ingress.yaml
