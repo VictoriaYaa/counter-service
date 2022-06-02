@@ -16,11 +16,27 @@
 
 # CMD [ "counter-service.py" ]
 
-FROM ubuntu 
+# FROM ubuntu 
 
-RUN apt-get update 
-RUN apt-get install python3-pip
-RUN apt-get install flask
-ADD app.py /
-WORKDIR /
-CMD [“python3”,”app.py”]
+# RUN apt-get update 
+# RUN apt-get install python3-pip
+# RUN apt-get install flask
+# ADD app.py /
+# WORKDIR /
+# CMD [“python3”,”app.py”]
+
+
+
+FROM python:3.8-alpine
+
+COPY ./requirements.txt /app/requirements.txt
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENTRYPOINT [ "python" ]
+
+CMD ["counter-service.py" ]
