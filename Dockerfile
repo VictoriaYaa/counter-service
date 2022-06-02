@@ -3,13 +3,13 @@ FROM ubuntu:16.04
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
 
-COPY ./requirements.txt /counter-service/requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 
-WORKDIR /counter-service
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-COPY . /counter-service
+COPY . /app
 
 ENTRYPOINT [ "python" ]
 
