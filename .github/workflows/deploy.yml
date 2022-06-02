@@ -80,23 +80,8 @@ jobs:
       
 
       - name: Deploy image to Amazon EKS
-        uses: kodermax/kubectl-aws-eks@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
-        with:
-          args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
-
-      - name: Verify Deployment
-        uses: kodermax/kubectl-aws-eks@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        with:
-          args: rollout status deployment/vic-counter-service
-
-      # - name: Deploy image to Amazon EKS
-      #   run: |
-      #     kubectl apply -f aws-auth.yaml
-      #     kubectl apply -f deployment.yaml
-      #     kubectl apply -f kube-service.yaml
-      #     kubectl apply -f kube-ingress.yaml
+        run: |
+          kubectl apply -f aws-auth.yaml
+          kubectl apply -f deployment.yaml
+          kubectl apply -f kube-service.yaml
+          kubectl apply -f kube-ingress.yaml
