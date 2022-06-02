@@ -1,5 +1,5 @@
 resource "docker_image" "counter_service_image" {
-  name = "counter_services"
+  name = "vic_counter_service"
   build {
     path = "."
     dockerfile = "Dockerfile"
