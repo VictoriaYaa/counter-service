@@ -2,13 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vic-counter-service
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: alb
 spec:
   type: NodePort
   selector:
     app: vic-counter-service-api
   ports:
-    - nodePort: 30001
-      port: 80
+    - port: 80
       targetPort: 80
+      protocol: TCP
+      name: http
