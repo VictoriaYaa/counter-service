@@ -78,9 +78,6 @@ jobs:
       - name: Update Kube Config
         run: aws eks update-kubeconfig --name vic-terraform-eks-NEW --region us-east-1
 
-      - name: Validate YAML files
-        uses: ibiqlik/action-yamllint@v3
-
       - name: Deploy image to Amazon EKS
         run: |
           kubectl apply -f aws-auth.yaml
