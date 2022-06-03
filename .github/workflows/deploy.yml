@@ -84,3 +84,7 @@ jobs:
           kubectl apply -f deployment.yaml
           kubectl apply -f kube-service.yaml
           kubectl apply -f kube-ingress.yaml
+          kubectl get all
+          kubectl get nodes -o wide
+          kubectl get pods -o wide
+
