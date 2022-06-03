@@ -5,7 +5,7 @@ metadata:
   labels:
     app: vic-counter-service-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: vic-counter-service-api
@@ -15,8 +15,9 @@ spec:
         app: vic-counter-service-api
     spec:
       containers:
-      - name: vic-counter-service
+      - name: vic-counter-service-api
         image: 476285196763.dkr.ecr.us-east-1.amazonaws.com/vic-counter-service:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+          protocol: TCP

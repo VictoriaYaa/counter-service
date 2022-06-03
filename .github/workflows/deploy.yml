@@ -77,16 +77,9 @@ jobs:
       
       - name: Update Kube Config
         run: aws eks update-kubeconfig --name vic-terraform-eks-NEW --region us-east-1
-      
-      # - name: Deploy to Kubernetes cluster                                                                            
-      #   uses: kodermax/kubectl-aws-eks@master                                                                         
-      #   env:
-      #     RELEASE_REVISION: "pr-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}"                                                                                                   
-      #     RELEASE_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.RELEASE_REVISION }}
-      #   with:                                                                                                         
-      #     args: set image deployment/my-pod app=${{ env.RELEASE_IMAGE }} --record -n vic-terraform-eks-NEW
 
-
+      - name: Validate YAML files
+        uses: ibiqlik/action-yamllint@v3
 
       - name: Deploy image to Amazon EKS
         run: |
