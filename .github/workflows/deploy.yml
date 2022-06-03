@@ -84,7 +84,13 @@ jobs:
           kubectl apply -f deployment.yaml
           kubectl apply -f kube-service.yaml
           kubectl apply -f kube-ingress.yaml
+          
+      - name: Verify Deployment of the Image to Amazon EKS
+        run: |
+          echo "kubectl get all"
           kubectl get all
+          echo "kubectl get nodes -o wide"
           kubectl get nodes -o wide
+          echo "kubectl get pods -o wide"
           kubectl get pods -o wide
 
