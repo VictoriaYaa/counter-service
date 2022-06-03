@@ -76,7 +76,7 @@ jobs:
 
       
       - name: Update Kube Config
-        run: aws eks update-kubeconfig --name vic-terraform-eks-NEW --region us-east-1
+        run: aws eks update-kubeconfig --name NEW-vic-eks --region us-east-1
 
       - name: Deploy image to Amazon EKS
         run: |
