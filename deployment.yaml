@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vic-counter-service-deployment
+  name: counter-service
   labels:
-    app: vic-counter-service-api
+    app: counter-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vic-counter-service-api
+      app: counter-service
   template:
     metadata:
       labels:
-        app: vic-counter-service-api
+        app: counter-service
     spec:
       containers:
-      - name: vic-counter-service-api
+      - name: counter-service
         image: 476285196763.dkr.ecr.us-east-1.amazonaws.com/vic-counter-service:latest
         imagePullPolicy: Always
         ports:
