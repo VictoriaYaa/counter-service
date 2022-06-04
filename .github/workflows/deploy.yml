@@ -86,6 +86,10 @@ jobs:
           
       - name: Verify Deployment of the Image to Amazon EKS
         run: |
+          kubectl delete pods -l counter-service-6f94c5656f-jqbdl   
+          kubectl delete pods -l vic-counter-service-deployment-759d55d8df-6n7lf
+          kubectl delete deployment deployment.apps/vic-counter-service-deployment 
+
           echo "kubectl get all"
           kubectl get all
           echo "kubectl get nodes -o wide"
