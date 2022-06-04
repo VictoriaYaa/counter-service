@@ -51,7 +51,7 @@ jobs:
 
         
     - name: Verify Deployment of the Image to Amazon EKS
-      run: |
+      run: |   
         echo "kubectl get all"
         kubectl get all
 
