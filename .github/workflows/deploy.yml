@@ -82,7 +82,6 @@ jobs:
         run: |
           kubectl apply -f aws-auth.yaml
           kubectl apply -f deployment.yaml
-          kubectl apply -f kube-service.yaml
           kubectl apply -f kube-ingress.yaml
           
       - name: Verify Deployment of the Image to Amazon EKS
