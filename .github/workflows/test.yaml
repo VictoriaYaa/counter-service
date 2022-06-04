@@ -12,7 +12,7 @@ on:
 jobs:
 
   terraform:
-    name: Testing and Validating Terraform
+    name: Testing and Validating Terraform & Kubctl
     runs-on: ubuntu-latest
 
     steps:
@@ -46,4 +46,20 @@ jobs:
       id: plan
       run: terraform plan 
 
+    - name: Update Kube Config
+      run: aws eks update-kubeconfig --name NEW-vic-eks --region us-east-1
 
+        
+    - name: Verify Deployment of the Image to Amazon EKS
+      run: |
+        echo "kubectl get all"
+        kubectl get all
+
+        echo "kubectl get nodes -o wide"
+        kubectl get nodes -o wide
+
+        echo "kubectl get pods -o wide"
+        kubectl get pods -o wide
+
+        echo "kubectl get svc"
+        kubectl get svc
