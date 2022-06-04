@@ -52,8 +52,10 @@ jobs:
         
     - name: Verify Deployment of the Image to Amazon EKS
       run: |   
-        kubectl delete pod counter-service-6f94c5656f-l7pnc
+        kubectl delete pod counter-service-6f94c5656f-5k5lj
+        kubectl delete deployment counter-service 
 
+        
         echo "kubectl get all"
         kubectl get all
 
