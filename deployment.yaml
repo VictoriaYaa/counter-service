@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: counter-service
-  labels:
-    app: counter-service
+  name: deployment-counter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: counter-service
+      app.kubernetes.io/name: app-counter
   template:
     metadata:
       labels:
-        app: counter-service
+        app.kubernetes.io/name: app-counter
     spec:
       containers:
-      - name: counter-service
+      - name: app-counter
         image: 476285196763.dkr.ecr.us-east-1.amazonaws.com/vic-counter-service:latest
         imagePullPolicy: Always
         ports:
